@@ -37,9 +37,8 @@ class BasketballController extends RatingController implements RateInterface
 
             foreach ($factors as $factor) {
                 if (($position === $factor['position'] || str_contains($factor['position'], lcfirst($position))))
-                    $rating = $stats[$player->nick_name][0] * $factor['scored point'] + $stats[$player->nick_name][1] * $factor['rebound'] + $stats[$player->nick_name][2] * $factor['assist'];
+                    $rating = ($stats[$player->nick_name][0] * $factor['scored point']) + ($stats[$player->nick_name][1] * $factor['rebound']) + ($stats[$player->nick_name][2] * $factor['assist']);
             }
-
             $player->playerTeam()->where('game_id', $game->id)->update(['rating' => $rating]);
         }
     }

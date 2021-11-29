@@ -37,7 +37,7 @@ class HandballController extends RatingController implements RateInterface
 
             foreach ($factors as $factor) {
                 if (($position === $factor['position'] || str_contains($factor['position'], lcfirst($position))))
-                    $rating = $factor['Initial rating points'] + $stats[$player->nick_name][0] * $factor['Goal made'] + $stats[$player->nick_name][1] * $factor['Goal recieved'];
+                    $rating = $factor['Initial rating points'] + ($stats[$player->nick_name][0] * $factor['Goal made']) + ($stats[$player->nick_name][1] * $factor['Goal recieved']);
             }
 
             $player->playerTeam()->where('game_id',$game->id)->update(['rating' => $rating]);
