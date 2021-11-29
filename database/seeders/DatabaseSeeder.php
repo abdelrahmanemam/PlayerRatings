@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
 {
 "position": "forward",
 "scored point": 2,
-"rebound": 3,
-"assist": 1
+"rebound": 2,
+"assist": 2
 },
 {
 "position": "center",
